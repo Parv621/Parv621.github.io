@@ -14,7 +14,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>[Your Name] — [Your Title / Tagline]</title>
+  <title>Parv Khurana — Research Scientist, Numerical Methods & Scientific ML</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -506,7 +506,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-left">
-    <a class="nav-mark" href="#hero">XX /</a>
+    <a class="nav-mark" href="#hero">PK /</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#work">Experience</a></li>
@@ -524,23 +524,24 @@
 
 <!-- HERO -->
 <div id="hero">
-  <div class="hero-kicker">[Field 1] &middot; [Field 2] &middot; [Field 3]</div>
+  <div class="hero-kicker">Numerical Methods &middot; Scientific ML &middot; HPC</div>
   <div class="hero-name-row">
-    <h1 class="hero-name">[First<br/><em>Last]</em></h1>
-    <!-- TO CUSTOMIZE: add a photo to images/ and point src at it, e.g. images/photo.jpg -->
-    <img class="hero-photo" src="images/photo.jpg" alt="[Your Name]" />
+    <h1 class="hero-name">Parv<br/><em>Khurana</em></h1>
+    <img class="hero-photo" src="images/photo.jpg" alt="Parv Khurana" />
   </div>
   <p class="hero-bio">
-    [One or two sentences describing what you work on and what you're known for.
-    Write it the way you'd introduce yourself to someone in your field.]
+    I develop scalable numerical methods and PDE solvers for high-performance computing,
+    and build the <strong>production C++/Python simulation software</strong> and
+    <em>machine-learning methods</em> — neural operators, differentiable solvers — that make
+    them useful on real physical systems.
   </p>
   <div class="hero-pill">
     <span class="dot"></span>
-    [Current role/title] &middot; [Institution or company]
+    Postdoctoral Researcher &middot; SOLARIS Lab, Johns Hopkins University
   </div>
   <div class="hero-actions">
-    <a class="btn btn-filled" href="https://github.com/yourusername" target="_blank">&#8599; GitHub</a>
-    <a class="btn btn-outline" href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Publications</a>
+    <a class="btn btn-filled" href="https://github.com/Parv621" target="_blank">&#8599; GitHub</a>
+    <a class="btn btn-outline" href="https://scholar.google.com/citations?user=ERq6oD0AAAAJ" target="_blank">Publications</a>
     <a class="btn btn-outline" id="emailBtn" href="#">Email</a>
   </div>
 </div>
@@ -551,48 +552,62 @@
   <div class="about-layout">
     <div class="about-copy reveal">
       <p>
-        [Paragraph 1: who you are and what you do. E.g. your current role,
-        institution/company, and the general area you work in.]
+        I'm a research scientist working at the intersection of numerical methods and
+        machine learning for physical systems. I'm currently a postdoctoral researcher
+        in the <strong>SOLARIS Lab at Johns Hopkins University</strong>, where I build
+        neural-operator surrogates and differentiable PDE solvers for fluid dynamics.
       </p>
       <p>
-        [Paragraph 2: a specific project, role, or body of work. What was
-        the problem, what did you build or do, what was the outcome?]
+        At Johns Hopkins I train neural-operator surrogates &mdash; FNOs and DeepONets &mdash;
+        across ten PDE systems, and train closed-loop neural control policies by
+        backpropagating through differentiable Navier&ndash;Stokes solvers for 3D turbulent
+        channel flow. Backpropagating through 500-step autoregressive rollouts without
+        gradient blow-up, these policies <strong>outperform RL-PPO by 1&ndash;3 orders of
+        accuracy</strong> on noisy, out-of-distribution initializations where classical MPC
+        was intractable.
       </p>
       <p>
-        [Paragraph 3: another significant piece of work or experience.
-        Use <strong>bold</strong> for the headline numbers or outcomes you
-        want to stand out.]
+        Before this, I split my PhD between <strong>Imperial College London</strong> and the
+        <strong>McLaren F1 Team</strong>, where I designed a preconditioner for dense,
+        ill-conditioned high-order FEM operators that <strong>accelerated 3D simulation by
+        40%</strong> and scaled algebraic multigrid to 100M-element matrices across 10,000+
+        MPI ranks on national HPC. At McLaren I industrialized the research solver
+        Nektar++ into the team's production pipeline for unsteady 3D simulation &mdash;
+        the first such deployment in Formula 1.
       </p>
       <p>
-        [Paragraph 4 (optional): anything else worth knowing — a research
-        thread, a technical specialty, an interest you keep coming back to.]
+        I care about open-source scientific software: I'm a core contributor to
+        <em>Nektar++</em>, the open-source spectral/hp element framework, and to
+        <em>NeuroMANCER</em>, PNNL's differentiable-programming and scientific-ML library,
+        where I introduced neural-operator support via five merged pull requests.
       </p>
       <p>
-        [Paragraph 5 (optional): publications, talks, awards, grants —
-        a short summary line tying it together.]
+        My work spans journal articles, peer-reviewed proceedings, and conference talks
+        in CFD, HPC, and machine learning &mdash; from turbulence-model augmentation to
+        preconditioning for spectral/hp element methods. Full list on
+        <a href="https://scholar.google.com/citations?user=ERq6oD0AAAAJ" target="_blank">Google Scholar</a>.
       </p>
     </div>
     <div class="about-aside reveal reveal-d1">
-      <!-- TO CUSTOMIZE: swap in your own headline numbers, or delete tiles you don't need -->
       <div class="stat-tile">
-        <div class="stat-n">[N]</div>
-        <div class="stat-d">[What this number measures]</div>
+        <div class="stat-n">40%</div>
+        <div class="stat-d">Faster 3D simulation from a new FEM preconditioner</div>
       </div>
       <div class="stat-tile">
-        <div class="stat-n">[N]</div>
-        <div class="stat-d">[What this number measures]</div>
+        <div class="stat-n">100M</div>
+        <div class="stat-d">Element matrices scaled across 10,000+ MPI ranks</div>
       </div>
       <div class="stat-tile">
-        <div class="stat-n teal">[N]</div>
-        <div class="stat-d">[What this number measures]</div>
+        <div class="stat-n teal">10</div>
+        <div class="stat-d">PDE systems modeled with neural-operator surrogates</div>
       </div>
       <div class="stat-tile">
-        <div class="stat-n amber">[N]</div>
-        <div class="stat-d">[What this number measures]</div>
+        <div class="stat-n amber">5</div>
+        <div class="stat-d">Merged PRs adding neural operators to NeuroMANCER</div>
       </div>
       <div class="stat-tile">
-        <div class="stat-n">[N]</div>
-        <div class="stat-d">[What this number measures]</div>
+        <div class="stat-n">12</div>
+        <div class="stat-d">Publications & manuscripts across CFD, ML and HPC</div>
       </div>
     </div>
   </div>
@@ -603,52 +618,99 @@
   <div class="sec-label">Experience</div>
   <div class="timeline">
 
-    <!-- TO CUSTOMIZE: one .tl-item per role. Copy/paste this block to add more, delete to remove. -->
     <div class="tl-item reveal">
-      <div class="tl-when">[Start]<br/>&ndash; [End]</div>
+      <div class="tl-when">Oct 2025<br/>&ndash; Present</div>
       <div>
-        <div class="tl-where">[Organization] &middot; [Location]</div>
-        <div class="tl-role">[Your Title]</div>
+        <div class="tl-where">SOLARIS Lab, Johns Hopkins University &middot; Baltimore, US</div>
+        <div class="tl-role">Postdoctoral Researcher</div>
         <div class="tl-body">
-          [What you did in this role — 2-4 sentences on the problem,
-          your approach, and the scope of the work.]
+          Training neural-operator surrogates (FNO, DeepONet) across 10 PDE systems on
+          200k training pairs, and closed-loop neural control policies via differentiable
+          Navier&ndash;Stokes solvers for 3D turbulent channel flow &mdash; backpropagating through
+          500-step autoregressive rollouts without gradient blow-up. Introducing
+          neural-operator capability into NeuroMANCER, PNNL's open-source PyTorch library,
+          via five merged PRs.
           <div class="result-strip">
-            <strong>&#8594; [Headline result]</strong> &middot; [supporting detail]
+            <strong>&#8594; Outperformed RL-PPO by 1&ndash;3 orders of accuracy</strong> &middot; on noisy, OOD initializations where classical MPC was intractable
           </div>
         </div>
         <div class="tl-chips">
-          <span class="chip">[Skill]</span><span class="chip">[Skill]</span>
-          <span class="chip">[Tool]</span><span class="chip">[Tool]</span>
+          <span class="chip">Neural Operators</span><span class="chip">Differentiable Solvers</span>
+          <span class="chip">PyTorch</span><span class="chip">JAX</span>
         </div>
       </div>
     </div>
 
     <div class="tl-item reveal">
-      <div class="tl-when">[Start]<br/>&ndash; [End]</div>
+      <div class="tl-when">Jan 2022<br/>&ndash; Jan 2025</div>
       <div>
-        <div class="tl-where">[Organization] &middot; [Location]</div>
-        <div class="tl-role">[Your Title]</div>
+        <div class="tl-where">CFD Team, McLaren F1 Team &middot; Woking, UK</div>
+        <div class="tl-role">Associate</div>
         <div class="tl-body">
-          [What you did in this role — 2-4 sentences on the problem,
-          your approach, and the scope of the work.]
+          Industrialized the research solver Nektar++ into McLaren's production pipeline
+          for unsteady 3D simulation &mdash; the first such deployment in Formula 1. Delivered
+          the end-to-end workflow from curved meshing to solve, adopted across CFD, HPC,
+          and aerodynamics teams, and shipped and maintained the solver integration in the
+          production Python codebase on race-season release schedules.
+          <div class="result-strip">
+            <strong>&#8594; First unsteady 3D CFD solver in production F1 pipeline</strong> &middot; adopted across CFD, HPC & aero teams
+          </div>
         </div>
         <div class="tl-chips">
-          <span class="chip">[Skill]</span><span class="chip">[Skill]</span>
-          <span class="chip">[Tool]</span><span class="chip">[Tool]</span>
+          <span class="chip">High-order FEM</span><span class="chip">Nektar++</span>
+          <span class="chip">C++</span><span class="chip">Python</span>
         </div>
       </div>
     </div>
 
     <div class="tl-item reveal">
-      <div class="tl-when">[Start]<br/>&ndash; [End]</div>
+      <div class="tl-when">Jan 2022<br/>&ndash; Jul 2025</div>
       <div>
-        <div class="tl-where">[Organization] &middot; [Location]</div>
-        <div class="tl-role">[Your Title]</div>
+        <div class="tl-where">Imperial College London &middot; London, UK</div>
+        <div class="tl-role">Doctoral Researcher</div>
         <div class="tl-body">
-          [What you did in this role — 1-3 sentences.]
+          Designed a preconditioner for dense, ill-conditioned high-order FEM operators,
+          accelerating 3D simulation by 40%. Scaled PETSc/Hypre algebraic multigrid to
+          100M-element matrices on national HPC over 10,000 MPI ranks, and released the
+          preconditioner as production C++ into open-source Nektar++ with code review,
+          testing, and CI/CD.
         </div>
         <div class="tl-chips">
-          <span class="chip">[Skill]</span><span class="chip">[Tool]</span>
+          <span class="chip">Preconditioning</span><span class="chip">PETSc/Hypre AMG</span>
+          <span class="chip">MPI</span><span class="chip">C++</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-when">Aug 2020<br/>&ndash; Nov 2021</div>
+      <div>
+        <div class="tl-where">ISAE-SUPAERO & DLR &middot; Toulouse, FR & G&ouml;ttingen, DE</div>
+        <div class="tl-role">Graduate Researcher</div>
+        <div class="tl-body">
+          At ISAE-SUPAERO, trained CNN models for autoregressive forecasting of wave
+          propagation with absorbing boundaries. For my thesis at DLR, corrected
+          turbulence closure from wind-tunnel data via field inversion, an adjoint-based
+          inverse problem.
+        </div>
+        <div class="tl-chips">
+          <span class="chip">CNNs</span><span class="chip">Field Inversion</span>
+          <span class="chip">Adjoint Methods</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-when">Jun 2018<br/>&ndash; Jul 2019</div>
+      <div>
+        <div class="tl-where">BCG X (GAMMA), Boston Consulting Group &middot; New Delhi, IN</div>
+        <div class="tl-role">Junior Data Analyst</div>
+        <div class="tl-body">
+          Delivered analytics workstreams on a large-scale transformation program for a
+          Forbes 1000 multinational.
+        </div>
+        <div class="tl-chips">
+          <span class="chip">Data Analytics</span>
         </div>
       </div>
     </div>
@@ -658,43 +720,41 @@
 <!-- 3. TECHNICAL STACK -->
 <section id="stack">
   <div class="sec-label">Technical Stack</div>
-  <!-- TO CUSTOMIZE: rename the 4 categories to fit your field, list your skills.
-       Add class="hi" to highlight your strongest/most-used skills. -->
   <div class="skills-matrix reveal">
     <div class="skill-cell">
-      <div class="skill-head">[Category 1]</div>
+      <div class="skill-head">Machine Learning</div>
       <div class="skill-items">
-        <span class="skill-item hi">[Skill]</span>
-        <span class="skill-item hi">[Skill]</span>
-        <span class="skill-item">[Skill]</span>
-        <span class="skill-item">[Skill]</span>
+        <span class="skill-item hi">Neural Operators (FNO, DeepONet)</span>
+        <span class="skill-item hi">Differentiable Programming</span>
+        <span class="skill-item">Model-Based RL</span>
+        <span class="skill-item">Inverse Problems</span>
       </div>
     </div>
     <div class="skill-cell">
-      <div class="skill-head">[Category 2]</div>
+      <div class="skill-head">ML Engineering</div>
       <div class="skill-items">
-        <span class="skill-item hi">[Skill]</span>
-        <span class="skill-item hi">[Skill]</span>
-        <span class="skill-item">[Skill]</span>
-        <span class="skill-item">[Skill]</span>
+        <span class="skill-item hi">PyTorch</span>
+        <span class="skill-item hi">JAX</span>
+        <span class="skill-item">Weights & Biases</span>
+        <span class="skill-item">Experiment Design</span>
       </div>
     </div>
     <div class="skill-cell">
-      <div class="skill-head">[Category 3]</div>
+      <div class="skill-head">Numerics</div>
       <div class="skill-items">
-        <span class="skill-item hi">[Skill]</span>
-        <span class="skill-item hi">[Skill]</span>
-        <span class="skill-item">[Skill]</span>
-        <span class="skill-item">[Skill]</span>
+        <span class="skill-item hi">High-Order FEM</span>
+        <span class="skill-item hi">Krylov Solvers</span>
+        <span class="skill-item">Algebraic Multigrid</span>
+        <span class="skill-item">POD/DMD</span>
       </div>
     </div>
     <div class="skill-cell">
-      <div class="skill-head">[Category 4]</div>
+      <div class="skill-head">HPC & Software</div>
       <div class="skill-items">
-        <span class="skill-item hi">[Skill]</span>
-        <span class="skill-item hi">[Skill]</span>
-        <span class="skill-item">[Skill]</span>
-        <span class="skill-item">[Skill]</span>
+        <span class="skill-item hi">MPI</span>
+        <span class="skill-item hi">C++</span>
+        <span class="skill-item">Python</span>
+        <span class="skill-item">CI/CD</span>
       </div>
     </div>
   </div>
@@ -703,34 +763,33 @@
 <!-- 4. OPEN SOURCE -->
 <section id="projects">
   <div class="sec-label">Open Source</div>
-  <!-- TO CUSTOMIZE: one .proj-card per project. Copy/paste to add more. -->
   <div class="projects-grid">
-    <a class="proj-card reveal" href="https://github.com/yourusername/project-one" target="_blank">
-      <div class="proj-tag">[Tag] &middot; [Tag] &middot; [Tag]</div>
-      <div class="proj-name">[project-name]</div>
-      <p class="proj-desc">[One or two sentences describing what the project does and why it's interesting or useful.]</p>
+    <a class="proj-card reveal" href="https://gitlab.nektar.info/nektar/nektar/-/merge_requests/1888" target="_blank">
+      <div class="proj-tag">Preconditioning &middot; FEM &middot; HPC</div>
+      <div class="proj-name">Nektar++ &mdash; LOR/SEMFEM Preconditioner</div>
+      <p class="proj-desc">New preconditioner for the core high-order FEM solver, targeting scalable pressure-Poisson and incompressible-flow simulations, with high-to-low-order discretization mappings and support for tetrahedral/prismatic elements.</p>
       <div class="proj-chips">
-        <span class="chip">[Tech]</span><span class="chip">[Tech]</span><span class="chip">[Tech]</span>
+        <span class="chip">C++</span><span class="chip">PETSc</span><span class="chip">MPI</span>
+      </div>
+      <span class="proj-link">View merge request &#8599;</span>
+    </a>
+    <a class="proj-card reveal reveal-d1" href="https://github.com/pnnl/neuromancer/pull/265" target="_blank">
+      <div class="proj-tag">Neural Operators &middot; Differentiable Programming</div>
+      <div class="proj-name">NeuroMANCER &mdash; Neural Operator Support</div>
+      <p class="proj-desc">Added native support for Fourier Neural Operators and DeepONets to PNNL's differentiable-programming library, including operator-specific losses, training/validation support, tests, and scientific examples.</p>
+      <div class="proj-chips">
+        <span class="chip">PyTorch</span><span class="chip">FNO</span><span class="chip">DeepONet</span>
       </div>
       <span class="proj-link">View on GitHub &#8599;</span>
     </a>
-    <a class="proj-card reveal reveal-d1" href="https://github.com/yourusername/project-two" target="_blank">
-      <div class="proj-tag">[Tag] &middot; [Tag] &middot; [Tag]</div>
-      <div class="proj-name">[project-name]</div>
-      <p class="proj-desc">[One or two sentences describing what the project does and why it's interesting or useful.]</p>
+    <a class="proj-card reveal reveal-d2" href="https://gitlab.nektar.info/nektar/nektar/-/merge_requests/1618" target="_blank">
+      <div class="proj-tag">HPC &middot; Build Infrastructure</div>
+      <div class="proj-name">Nektar++ &mdash; PETSc/HPC Solver Integration</div>
+      <p class="proj-desc">Modernized PETSc integration and build infrastructure across Nektar++ to support newer and externally installed PETSc configurations.</p>
       <div class="proj-chips">
-        <span class="chip">[Tech]</span><span class="chip">[Tech]</span><span class="chip">[Tech]</span>
+        <span class="chip">C++</span><span class="chip">PETSc</span><span class="chip">CMake</span>
       </div>
-      <span class="proj-link">View on GitHub &#8599;</span>
-    </a>
-    <a class="proj-card reveal reveal-d2" href="https://github.com/yourusername/project-three" target="_blank">
-      <div class="proj-tag">[Tag] &middot; [Tag] &middot; [Tag]</div>
-      <div class="proj-name">[project-name]</div>
-      <p class="proj-desc">[One or two sentences describing what the project does and why it's interesting or useful.]</p>
-      <div class="proj-chips">
-        <span class="chip">[Tech]</span><span class="chip">[Tech]</span><span class="chip">[Tech]</span>
-      </div>
-      <span class="proj-link">View on GitHub &#8599;</span>
+      <span class="proj-link">View merge request &#8599;</span>
     </a>
   </div>
 </section>
@@ -754,18 +813,21 @@
         </div>
       </div>
       <div class="hl-body">
-        <div class="hl-tag">[Topic] &middot; [Institution/Company] &middot; [Years]</div>
-        <div class="hl-title">[Title of your biggest or most visual result]</div>
+        <div class="hl-tag">Scientific ML &middot; SOLARIS Lab, Johns Hopkins University &middot; 2025&ndash;Present</div>
+        <div class="hl-title">Closed-loop neural control of 3D turbulent channel flow</div>
         <div class="hl-desc">
-          [What was the problem or question? 2-3 sentences of context a
-          non-specialist could follow.]
+          Classical model-predictive control becomes intractable for noisy, out-of-distribution
+          initializations of turbulent flow. I trained neural-operator surrogates (FNO, DeepONet)
+          across 10 PDE systems, then used them to build closed-loop neural control policies by
+          backpropagating through differentiable Navier&ndash;Stokes solvers over 500-step
+          autoregressive rollouts &mdash; without gradient blow-up.
         </div>
         <div class="hl-finding">
-          [What did you find or build, and what was the outcome? This is
-          your headline result.]
+          These policies outperform RL-PPO by 1&ndash;3 orders of magnitude in accuracy on
+          noisy, OOD initializations where classical MPC breaks down.
         </div>
         <div class="hl-chips">
-          <span class="chip">[Tech]</span><span class="chip">[Tech]</span><span class="chip">[Tech]</span>
+          <span class="chip">Neural Operators</span><span class="chip">Differentiable Solvers</span><span class="chip">PyTorch</span>
         </div>
       </div>
     </div>
@@ -779,16 +841,18 @@
         </div>
       </div>
       <div class="hl-body">
-        <div class="hl-tag">[Topic] &middot; [Institution/Company] &middot; [Years]</div>
-        <div class="hl-title">[Title of second result]</div>
+        <div class="hl-tag">Preconditioning &middot; Imperial College London / McLaren F1 &middot; 2022&ndash;2025</div>
+        <div class="hl-title">Scalable preconditioning for high-order FEM</div>
         <div class="hl-desc">
-          [Context: what were you trying to do?]
+          Dense, ill-conditioned operators from high-order finite-element discretizations
+          make iterative solvers slow to converge at industrial scale.
         </div>
         <div class="hl-finding">
-          [What was the outcome?]
+          Designed a new preconditioner that accelerated 3D simulation by 40% and scaled
+          algebraic multigrid to 100M-element matrices across 10,000+ MPI ranks on national HPC.
         </div>
         <div class="hl-chips">
-          <span class="chip">[Tech]</span><span class="chip">[Tech]</span>
+          <span class="chip">PETSc/Hypre AMG</span><span class="chip">C++</span>
         </div>
       </div>
     </div>
@@ -802,16 +866,19 @@
         </div>
       </div>
       <div class="hl-body">
-        <div class="hl-tag">[Topic] &middot; [Institution/Company] &middot; [Years]</div>
-        <div class="hl-title">[Title of third result]</div>
+        <div class="hl-tag">CFD &middot; McLaren F1 Team &middot; 2022&ndash;2025</div>
+        <div class="hl-title">Industrializing Nektar++ for Formula 1 CFD</div>
         <div class="hl-desc">
-          [Context: what were you trying to do?]
+          Research-grade high-order solvers rarely survive contact with a race-season
+          production pipeline.
         </div>
         <div class="hl-finding">
-          [What was the outcome?]
+          Delivered the first unsteady 3D CFD solver in a production F1 pipeline, with an
+          end-to-end workflow from curved meshing to solve, adopted across CFD, HPC, and
+          aerodynamics teams.
         </div>
         <div class="hl-chips">
-          <span class="chip">[Tech]</span><span class="chip">[Tech]</span>
+          <span class="chip">Nektar++</span><span class="chip">Python</span>
         </div>
       </div>
     </div>
@@ -822,31 +889,51 @@
 <!-- 6. SELECTED PUBLICATIONS -->
 <section id="publications">
   <div class="sec-label">Selected Publications</div>
-  <!-- TO CUSTOMIZE: one .pub-row per paper. Copy/paste to add more, delete to remove. -->
   <div class="pubs-list">
     <div class="pub-row reveal">
-      <div class="pub-yr">[Year]</div>
+      <div class="pub-yr">2026</div>
       <div>
-        <div class="pub-title">[Paper title]</div>
-        <div class="pub-venue">[Venue / journal]</div>
+        <div class="pub-title">Comparing implicit time-stepping techniques for highly resolved simulations using industrial geometries</div>
+        <div class="pub-venue"><a href="https://doi.org/10.1016/j.compfluid.2026.107029" target="_blank">Computers & Fluids, 311, 107029</a></div>
       </div>
     </div>
     <div class="pub-row reveal">
-      <div class="pub-yr">[Year]</div>
+      <div class="pub-yr">2026</div>
       <div>
-        <div class="pub-title">[Paper title]</div>
-        <div class="pub-venue">[Venue / journal]</div>
+        <div class="pub-title">Requirements and current capabilities for implicit large eddy simulation of the Imperial Front Wing using spectral h/p element methods</div>
+        <div class="pub-venue"><a href="https://doi.org/10.1007/978-3-032-19268-4" target="_blank">Direct and Large Eddy Simulation XIV, DLES14 &middot; Springer</a></div>
       </div>
     </div>
     <div class="pub-row reveal">
-      <div class="pub-yr">[Year]</div>
+      <div class="pub-yr">2025</div>
       <div>
-        <div class="pub-title">[Paper title]</div>
-        <div class="pub-venue">[Venue / journal]</div>
+        <div class="pub-title">Comparison of preconditioning techniques using spectral/hp element methods for complex geometries</div>
+        <div class="pub-venue"><a href="https://doi.org/10.1007/978-3-031-76988-7_14" target="_blank">ICOSAHOM 2023 &middot; Springer</a></div>
+      </div>
+    </div>
+    <div class="pub-row reveal">
+      <div class="pub-yr">2025</div>
+      <div>
+        <div class="pub-title">Industrialization of spectral/hp element method for incompressible, transitional flow around Formula 1 geometries</div>
+        <div class="pub-venue"><a href="https://doi.org/10.2514/6.2025-0880" target="_blank">AIAA SciTech 2025 Forum</a></div>
+      </div>
+    </div>
+    <div class="pub-row reveal">
+      <div class="pub-yr">2026</div>
+      <div>
+        <div class="pub-title">Flow behind the Imperial Front Wing: comparison of results from volumetric PTV experiment and Nektar++ simulations</div>
+        <div class="pub-venue"><a href="https://doi.org/10.48550/arXiv.2606.14342" target="_blank">Preprint, under review at Measurement Science and Technology</a></div>
+      </div>
+    </div>
+    <div class="pub-row reveal">
+      <div class="pub-yr">2023</div>
+      <div>
+        <div class="pub-title">Data-driven augmentation of a RANS turbulence model for transonic flow prediction</div>
+        <div class="pub-venue"><a href="https://doi.org/10.1108/HFF-08-2022-0488" target="_blank">Int. J. Numerical Methods for Heat & Fluid Flow, 33(4), 1544&ndash;1561</a></div>
       </div>
     </div>
   </div>
-  <a class="pub-see-all" href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">
+  <a class="pub-see-all" href="https://scholar.google.com/citations?user=ERq6oD0AAAAJ" target="_blank">
     &#8594; All publications on Google Scholar
   </a>
 </section>
@@ -856,26 +943,25 @@
   <div class="sec-label" style="justify-content:center; margin-bottom:2rem;">Contact</div>
   <h2 class="contact-head reveal">Let's build something<br/><em>unreasonably fast.</em></h2>
   <p class="contact-sub reveal">
-    [One sentence on what you're open to — collaborations, roles, questions
-    about your work, etc.]
+    <strong>Open to research scientist and postdoc roles from October 2026</strong> &mdash;
+    based in New York City, always happy to talk numerical methods, scientific ML, or
+    open-source scientific software.
   </p>
   <div class="contact-row reveal">
     <a class="btn btn-filled" id="emailBtn2" href="#">Email me</a>
-    <a class="btn btn-outline" href="https://github.com/yourusername" target="_blank">GitHub</a>
-    <a class="btn btn-outline" href="https://www.linkedin.com/in/yourusername/" target="_blank">LinkedIn</a>
-    <a class="btn btn-outline" href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Scholar</a>
+    <a class="btn btn-outline" href="https://github.com/Parv621" target="_blank">GitHub</a>
+    <a class="btn btn-outline" href="https://linkedin.com/in/parv-khurana" target="_blank">LinkedIn</a>
+    <a class="btn btn-outline" href="https://scholar.google.com/citations?user=ERq6oD0AAAAJ" target="_blank">Scholar</a>
   </div>
 </section>
 
 <footer>
-  <p>&#169; 2026 [Your Name]</p>
-  <p>[Institution/Company] &middot; [one or two more credentials, or delete this line]</p>
+  <p>&#169; 2026 Parv Khurana</p>
+  <p>Johns Hopkins University &middot; PhD, Imperial College London</p>
 </footer>
 
 <script>
-  // TO CUSTOMIZE: your email, split into user + domain so it's not plain-text
-  // to scrapers. e.g. u='jane.doe', d='example.com' -> jane.doe@example.com
-  var u = 'you', d = 'example.com', addr = u + '@' + d;
+  var u = 'parv621', d = 'gmail.com', addr = u + '@' + d;
   document.querySelectorAll('#emailBtn, #emailBtn2').forEach(function(el) {
     el.href = 'mailto:' + addr;
     if (el.id === 'emailBtn') el.textContent = addr;
