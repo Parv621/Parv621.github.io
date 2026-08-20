@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <!-- Google Analytics: replace UA-XXXXXXXXX-1 with your own tracking ID, or delete this block -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXXX-1');
+  </script>
+  -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Your Name] — [Your Title / Tagline]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root,
+    [data-theme="light"] {
+      --bg:        #f7f6f2;
+      --bg2:       #efede8;
+      --bg3:       #e6e3dc;
+      --border:    rgba(0,0,0,0.08);
+      --border-hi: rgba(0,0,0,0.15);
+      --text:      #1a1a18;
+      --muted:     #7a7870;
+      --dim:       #b0aea8;
+      --green:     #2d6a00;
+      --teal:      #0a6650;
+      --amber:     #7a4400;
+      --nav-bg:    rgba(247,246,242,0.92);
+      --dot-color: rgba(0,0,0,0.07);
+      --mono:  'IBM Plex Mono', monospace;
+      --serif: 'Fraunces', Georgia, serif;
+      --sans:  'DM Sans', system-ui, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg:        #09090b;
+      --bg2:       #0f0f12;
+      --bg3:       #161619;
+      --border:    rgba(255,255,255,0.06);
+      --border-hi: rgba(255,255,255,0.12);
+      --text:      #ddddd6;
+      --muted:     #666660;
+      --dim:       #3a3a36;
+      --green:     #c9f75d;
+      --teal:      #4df2c0;
+      --amber:     #f5a94a;
+      --nav-bg:    rgba(9,9,11,0.88);
+      --dot-color: rgba(255,255,255,0.055);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--nav-bg);
+      backdrop-filter: blur(18px);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .nav-left { display: flex; align-items: center; gap: 2rem; }
+    .nav-mark {
+      font-family: var(--mono); font-size: 0.78rem;
+      color: var(--green); letter-spacing: 0.05em;
+      text-decoration: none; font-weight: 600;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--mono); font-size: 0.68rem;
+      color: var(--muted); text-decoration: none;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .theme-toggle {
+      background: none; border: 1px solid var(--border-hi);
+      border-radius: 100px; cursor: pointer;
+      display: flex; align-items: center; gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .theme-toggle:hover { border-color: var(--green); background: var(--bg2); }
+    .t-icon { font-size: 0.8rem; line-height: 1; }
+    .t-label {
+      font-family: var(--mono); font-size: 0.62rem;
+      color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* HERO */
+    #hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 8rem 2.5rem 5.5rem;
+      max-width: 1120px; margin: 0 auto;
+    }
+    .hero-kicker {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--green); letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 1.75rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      opacity: 0; animation: fadeUp 0.7s 0.1s forwards;
+    }
+    .hero-kicker::before {
+      content: ''; display: inline-block; width: 28px; height: 1px; background: var(--green);
+    }
+    h1.hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3.8rem, 9vw, 8rem);
+      line-height: 0.95; letter-spacing: -0.03em; font-weight: 300;
+      margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.7s 0.2s forwards;
+    }
+    h1.hero-name em { font-style: italic; color: var(--green); }
+    .hero-name-row {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 2rem; margin-bottom: 0;
+    }
+    .hero-name-row h1.hero-name { margin-bottom: 0; }
+    .hero-photo {
+      width: clamp(140px, 16vw, 220px);
+      height: clamp(140px, 16vw, 220px);
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border-hi);
+      flex-shrink: 0;
+      margin-bottom: 0.5rem;
+      opacity: 0; animation: fadeUp 0.7s 0.2s forwards;
+      filter: grayscale(20%);
+      transition: filter 0.3s;
+    }
+    .hero-photo:hover { filter: grayscale(0%); }
+    .hero-bio {
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      color: var(--muted); max-width: 680px;
+      line-height: 1.85; font-weight: 300;
+      margin-top: 1.75rem; margin-bottom: 2.25rem;
+      opacity: 0; animation: fadeUp 0.7s 0.3s forwards;
+    }
+    .hero-bio strong { color: var(--text); font-weight: 500; }
+    .hero-bio em { color: var(--teal); font-style: normal; }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      font-family: var(--mono); font-size: 0.72rem; color: var(--teal);
+      border: 1px solid rgba(10,102,80,0.3); border-radius: 100px;
+      padding: 0.38rem 1rem; letter-spacing: 0.04em; margin-bottom: 2.75rem;
+      opacity: 0; animation: fadeUp 0.7s 0.38s forwards;
+    }
+    [data-theme="dark"] .hero-pill { border-color: rgba(77,242,192,0.25); }
+    .hero-pill .dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--teal);
+      animation: blink 2.2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+    .hero-actions {
+      display: flex; gap: 0.85rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s 0.48s forwards;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* BUTTONS */
+    .btn {
+      font-family: var(--mono); font-size: 0.72rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; padding: 0.65rem 1.4rem;
+      border-radius: 5px; transition: all 0.18s;
+      display: inline-flex; align-items: center; gap: 0.45rem;
+    }
+    .btn-filled { background: var(--green); color: #fff; font-weight: 600; }
+    [data-theme="dark"] .btn-filled { color: #09090b; }
+    .btn-filled:hover { filter: brightness(1.15); transform: translateY(-1px); }
+    .btn-outline { border: 1px solid var(--border-hi); color: var(--text); }
+    .btn-outline:hover { border-color: var(--green); color: var(--green); }
+
+    /* SECTIONS */
+    section {
+      position: relative; z-index: 1;
+      max-width: 1120px; margin: 0 auto;
+      padding: 5.5rem 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .sec-label {
+      font-family: var(--mono); font-size: 0.66rem;
+      color: var(--green); letter-spacing: 0.22em; text-transform: uppercase;
+      margin-bottom: 3rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .sec-label::after {
+      content: ''; flex: 1; height: 1px; background: var(--border); max-width: 180px;
+    }
+
+    /* ABOUT */
+    .about-layout { display: grid; grid-template-columns: 3fr 2fr; gap: 5rem; align-items: start; }
+    .about-copy p {
+      font-size: 1.05rem; font-weight: 300;
+      color: var(--text); line-height: 1.9; margin-bottom: 1.4rem;
+    }
+    .about-copy p:last-child { margin-bottom: 0; }
+    .about-copy strong { color: var(--green); font-weight: 500; }
+    .about-copy em { color: var(--teal); font-style: normal; }
+    /* scientist tone: pull-quote style for key insight */
+    .about-copy .insight {
+      font-family: var(--serif); font-size: 1.15rem; font-style: italic;
+      color: var(--text); border-left: 3px solid var(--green);
+      padding-left: 1.25rem; margin: 1.75rem 0;
+      line-height: 1.7;
+    }
+    .about-aside { display: flex; flex-direction: column; gap: 1.2rem; }
+    .stat-tile {
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 1.2rem 1.5rem; background: var(--bg2);
+      transition: border-color 0.2s, background 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .stat-tile::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--green), transparent);
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .stat-tile:hover { border-color: var(--border-hi); background: var(--bg3); }
+    .stat-tile:hover::after { opacity: 1; }
+    .stat-n {
+      font-family: var(--serif); font-size: 2.6rem; line-height: 1;
+      color: var(--green); margin-bottom: 0.2rem; font-weight: 300;
+    }
+    .stat-n.teal  { color: var(--teal); }
+    .stat-n.amber { color: var(--amber); }
+    .stat-d {
+      font-family: var(--mono); font-size: 0.68rem;
+      color: var(--muted); letter-spacing: 0.08em;
+      text-transform: uppercase; line-height: 1.4;
+    }
+
+    /* EXPERIENCE */
+    .timeline { display: flex; flex-direction: column; }
+    .tl-item {
+      display: grid; grid-template-columns: 130px 1fr;
+      gap: 2rem; padding: 2.25rem 0; border-bottom: 1px solid var(--border);
+    }
+    .tl-item:first-child { border-top: 1px solid var(--border); }
+    .tl-when {
+      font-family: var(--mono); font-size: 0.68rem;
+      color: var(--dim); letter-spacing: 0.06em; padding-top: 0.3rem; line-height: 1.6;
+    }
+    .tl-where {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--green); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.4rem;
+    }
+    .tl-role {
+      font-family: var(--serif); font-size: 1.35rem;
+      font-weight: 300; margin-bottom: 0.75rem; line-height: 1.2;
+    }
+    .tl-body { font-size: 0.9rem; color: var(--muted); line-height: 1.8; max-width: 640px; }
+    .tl-body strong { color: var(--text); font-weight: 500; }
+    .tl-body em { color: var(--teal); font-style: normal; }
+    .result-strip {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-left: 3px solid var(--green); border-radius: 0 6px 6px 0;
+      padding: 0.85rem 1.1rem; margin-top: 1rem;
+      font-size: 0.85rem; color: var(--text); line-height: 1.6;
+    }
+    .result-strip strong { color: var(--green); }
+    .tl-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+    .chip {
+      font-family: var(--mono); font-size: 0.62rem;
+      color: var(--dim); border: 1px solid var(--border);
+      border-radius: 3px; padding: 0.2rem 0.5rem;
+      letter-spacing: 0.04em; background: var(--bg);
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .tl-item:hover .chip { color: var(--muted); border-color: var(--border-hi); }
+
+    /* STACK */
+    .skills-matrix {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    }
+    .skill-cell { background: var(--bg2); padding: 1.6rem; transition: background 0.2s; }
+    .skill-cell:hover { background: var(--bg3); }
+    .skill-head {
+      font-family: var(--mono); font-size: 0.68rem;
+      color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.85rem;
+    }
+    .skill-items { display: flex; flex-direction: column; gap: 0.32rem; }
+    .skill-item { font-family: var(--mono); font-size: 0.72rem; color: var(--dim); }
+    .skill-item.hi { color: var(--text); }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    }
+    .proj-card {
+      background: var(--bg2); padding: 2rem;
+      text-decoration: none; color: inherit; transition: background 0.2s;
+      position: relative; overflow: hidden; display: flex; flex-direction: column;
+    }
+    .proj-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--green);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+    }
+    .proj-card:hover { background: var(--bg3); }
+    .proj-card:hover::before { transform: scaleX(1); }
+    .proj-tag {
+      font-family: var(--mono); font-size: 0.62rem;
+      color: var(--amber); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem;
+    }
+    .proj-name { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; margin-bottom: 0.65rem; line-height: 1.2; }
+    .proj-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.7; flex: 1; margin-bottom: 1rem; }
+    .proj-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.8rem; }
+    .proj-link {
+      font-family: var(--mono); font-size: 0.68rem;
+      color: var(--green); letter-spacing: 0.06em; opacity: 0; transition: opacity 0.2s;
+    }
+    .proj-card:hover .proj-link { opacity: 1; }
+
+    /* ── RESEARCH HIGHLIGHTS ── */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* full-width first card */
+    .highlight-card {
+      background: var(--bg2);
+      display: flex; flex-direction: column;
+      transition: background 0.2s;
+    }
+    .highlight-card:hover { background: var(--bg3); }
+    .highlight-card.full { grid-column: 1 / -1; flex-direction: row; }
+
+    /* media area — where you drop an image or video */
+    .hl-media {
+      background: var(--bg3);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .highlight-card.full .hl-media {
+      width: 55%; min-height: 300px;
+    }
+    .highlight-card:not(.full) .hl-media {
+      width: 100%; height: 220px;
+    }
+    .hl-media img,
+    .hl-media video,
+    .hl-media iframe {
+      width: 100%; height: 100%; object-fit: cover; display: block; border: none;
+    }
+    /* placeholder shown when no media is provided */
+    .hl-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      width: 100%; height: 100%;
+      color: var(--dim);
+      gap: 0.6rem;
+      padding: 2rem;
+      text-align: center;
+    }
+    .hl-placeholder .pl-icon {
+      font-size: 2rem; opacity: 0.4;
+    }
+    .hl-placeholder .pl-text {
+      font-family: var(--mono); font-size: 0.65rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      opacity: 0.5; line-height: 1.6;
+    }
+
+    /* text area */
+    .hl-body { padding: 1.75rem 2rem; flex: 1; }
+    .highlight-card.full .hl-body { display: flex; flex-direction: column; justify-content: center; }
+
+    .hl-tag {
+      font-family: var(--mono); font-size: 0.62rem;
+      color: var(--amber); letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 0.6rem;
+    }
+    .hl-title {
+      font-family: var(--serif); font-size: 1.2rem;
+      font-weight: 300; line-height: 1.25; margin-bottom: 0.75rem;
+    }
+    .highlight-card.full .hl-title { font-size: 1.45rem; }
+    .hl-desc {
+      font-size: 0.875rem; color: var(--muted); line-height: 1.75; margin-bottom: 1rem;
+    }
+    .hl-finding {
+      font-family: var(--serif); font-size: 0.9rem; font-style: italic;
+      color: var(--text); border-left: 2px solid var(--green);
+      padding-left: 0.85rem; line-height: 1.6; margin-bottom: 1rem;
+    }
+    .hl-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+    /* PUBLICATIONS */
+    .pubs-list { display: flex; flex-direction: column; }
+    .pub-row {
+      display: grid; grid-template-columns: 56px 1fr;
+      gap: 1.5rem; padding: 1.35rem 0; border-bottom: 1px solid var(--border);
+    }
+    .pub-row:first-child { border-top: 1px solid var(--border); }
+    .pub-yr { font-family: var(--mono); font-size: 0.68rem; color: var(--dim); letter-spacing: 0.04em; padding-top: 0.25rem; }
+    .pub-title { font-size: 0.92rem; color: var(--text); font-weight: 400; line-height: 1.55; margin-bottom: 0.25rem; }
+    .pub-venue { font-family: var(--mono); font-size: 0.65rem; color: var(--amber); letter-spacing: 0.05em; }
+    .pub-venue a { color: inherit; text-decoration: none; }
+    .pub-venue a:hover { color: var(--green); }
+    .pub-see-all {
+      display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.75rem;
+      font-family: var(--mono); font-size: 0.72rem;
+      color: var(--muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s;
+    }
+    .pub-see-all:hover { color: var(--green); }
+
+    /* CONTACT */
+    #contact { text-align: center; }
+    .contact-head {
+      font-family: var(--serif); font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 300; line-height: 1.05; margin-bottom: 1.1rem;
+    }
+    .contact-head em { font-style: italic; color: var(--green); }
+    .contact-sub {
+      font-size: 1rem; color: var(--muted); max-width: 480px;
+      margin: 0 auto 2.5rem; font-weight: 300; line-height: 1.7;
+    }
+    .contact-sub strong { color: var(--text); font-weight: 400; }
+    .contact-row { display: flex; justify-content: center; gap: 0.85rem; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border); padding: 1.75rem 2.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 1120px; margin: 0 auto;
+    }
+    footer p { font-family: var(--mono); font-size: 0.65rem; color: var(--dim); letter-spacing: 0.05em; }
+
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .about-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .skills-matrix { grid-template-columns: 1fr 1fr; }
+      .tl-item { grid-template-columns: 90px 1fr; gap: 1rem; }
+      .highlights-grid { grid-template-columns: 1fr; }
+      .highlight-card.full { flex-direction: column; }
+      .highlight-card.full .hl-media { width: 100%; min-height: 220px; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.25rem; }
+      #hero { padding: 6rem 1.25rem 4rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-matrix { grid-template-columns: 1fr 1fr; }
+      .tl-item { grid-template-columns: 1fr; gap: 0.25rem; }
+      .tl-when { padding-top: 0; }
+      footer { flex-direction: column; gap: 0.4rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <a class="nav-mark" href="#hero">XX /</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Experience</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#projects">Open Source</a></li>
+      <li><a href="#highlights">Research</a></li>
+      <li><a href="#publications">Papers</a></li>
+    </ul>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="t-icon" id="themeIcon">&#9788;</span>
+    <span class="t-label" id="themeLabel">Light</span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-kicker">[Field 1] &middot; [Field 2] &middot; [Field 3]</div>
+  <div class="hero-name-row">
+    <h1 class="hero-name">[First<br/><em>Last]</em></h1>
+    <!-- TO CUSTOMIZE: add a photo to images/ and point src at it, e.g. images/photo.jpg -->
+    <img class="hero-photo" src="images/photo.jpg" alt="[Your Name]" />
+  </div>
+  <p class="hero-bio">
+    [One or two sentences describing what you work on and what you're known for.
+    Write it the way you'd introduce yourself to someone in your field.]
+  </p>
+  <div class="hero-pill">
+    <span class="dot"></span>
+    [Current role/title] &middot; [Institution or company]
+  </div>
+  <div class="hero-actions">
+    <a class="btn btn-filled" href="https://github.com/yourusername" target="_blank">&#8599; GitHub</a>
+    <a class="btn btn-outline" href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Publications</a>
+    <a class="btn btn-outline" id="emailBtn" href="#">Email</a>
+  </div>
+</div>
+
+<!-- 1. ABOUT -->
+<section id="about">
+  <div class="sec-label">About</div>
+  <div class="about-layout">
+    <div class="about-copy reveal">
+      <p>
+        [Paragraph 1: who you are and what you do. E.g. your current role,
+        institution/company, and the general area you work in.]
+      </p>
+      <p>
+        [Paragraph 2: a specific project, role, or body of work. What was
+        the problem, what did you build or do, what was the outcome?]
+      </p>
+      <p>
+        [Paragraph 3: another significant piece of work or experience.
+        Use <strong>bold</strong> for the headline numbers or outcomes you
+        want to stand out.]
+      </p>
+      <p>
+        [Paragraph 4 (optional): anything else worth knowing — a research
+        thread, a technical specialty, an interest you keep coming back to.]
+      </p>
+      <p>
+        [Paragraph 5 (optional): publications, talks, awards, grants —
+        a short summary line tying it together.]
+      </p>
+    </div>
+    <div class="about-aside reveal reveal-d1">
+      <!-- TO CUSTOMIZE: swap in your own headline numbers, or delete tiles you don't need -->
+      <div class="stat-tile">
+        <div class="stat-n">[N]</div>
+        <div class="stat-d">[What this number measures]</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-n">[N]</div>
+        <div class="stat-d">[What this number measures]</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-n teal">[N]</div>
+        <div class="stat-d">[What this number measures]</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-n amber">[N]</div>
+        <div class="stat-d">[What this number measures]</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-n">[N]</div>
+        <div class="stat-d">[What this number measures]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. EXPERIENCE -->
+<section id="work">
+  <div class="sec-label">Experience</div>
+  <div class="timeline">
+
+    <!-- TO CUSTOMIZE: one .tl-item per role. Copy/paste this block to add more, delete to remove. -->
+    <div class="tl-item reveal">
+      <div class="tl-when">[Start]<br/>&ndash; [End]</div>
+      <div>
+        <div class="tl-where">[Organization] &middot; [Location]</div>
+        <div class="tl-role">[Your Title]</div>
+        <div class="tl-body">
+          [What you did in this role — 2-4 sentences on the problem,
+          your approach, and the scope of the work.]
+          <div class="result-strip">
+            <strong>&#8594; [Headline result]</strong> &middot; [supporting detail]
+          </div>
+        </div>
+        <div class="tl-chips">
+          <span class="chip">[Skill]</span><span class="chip">[Skill]</span>
+          <span class="chip">[Tool]</span><span class="chip">[Tool]</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-when">[Start]<br/>&ndash; [End]</div>
+      <div>
+        <div class="tl-where">[Organization] &middot; [Location]</div>
+        <div class="tl-role">[Your Title]</div>
+        <div class="tl-body">
+          [What you did in this role — 2-4 sentences on the problem,
+          your approach, and the scope of the work.]
+        </div>
+        <div class="tl-chips">
+          <span class="chip">[Skill]</span><span class="chip">[Skill]</span>
+          <span class="chip">[Tool]</span><span class="chip">[Tool]</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-when">[Start]<br/>&ndash; [End]</div>
+      <div>
+        <div class="tl-where">[Organization] &middot; [Location]</div>
+        <div class="tl-role">[Your Title]</div>
+        <div class="tl-body">
+          [What you did in this role — 1-3 sentences.]
+        </div>
+        <div class="tl-chips">
+          <span class="chip">[Skill]</span><span class="chip">[Tool]</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. TECHNICAL STACK -->
+<section id="stack">
+  <div class="sec-label">Technical Stack</div>
+  <!-- TO CUSTOMIZE: rename the 4 categories to fit your field, list your skills.
+       Add class="hi" to highlight your strongest/most-used skills. -->
+  <div class="skills-matrix reveal">
+    <div class="skill-cell">
+      <div class="skill-head">[Category 1]</div>
+      <div class="skill-items">
+        <span class="skill-item hi">[Skill]</span>
+        <span class="skill-item hi">[Skill]</span>
+        <span class="skill-item">[Skill]</span>
+        <span class="skill-item">[Skill]</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-head">[Category 2]</div>
+      <div class="skill-items">
+        <span class="skill-item hi">[Skill]</span>
+        <span class="skill-item hi">[Skill]</span>
+        <span class="skill-item">[Skill]</span>
+        <span class="skill-item">[Skill]</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-head">[Category 3]</div>
+      <div class="skill-items">
+        <span class="skill-item hi">[Skill]</span>
+        <span class="skill-item hi">[Skill]</span>
+        <span class="skill-item">[Skill]</span>
+        <span class="skill-item">[Skill]</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-head">[Category 4]</div>
+      <div class="skill-items">
+        <span class="skill-item hi">[Skill]</span>
+        <span class="skill-item hi">[Skill]</span>
+        <span class="skill-item">[Skill]</span>
+        <span class="skill-item">[Skill]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. OPEN SOURCE -->
+<section id="projects">
+  <div class="sec-label">Open Source</div>
+  <!-- TO CUSTOMIZE: one .proj-card per project. Copy/paste to add more. -->
+  <div class="projects-grid">
+    <a class="proj-card reveal" href="https://github.com/yourusername/project-one" target="_blank">
+      <div class="proj-tag">[Tag] &middot; [Tag] &middot; [Tag]</div>
+      <div class="proj-name">[project-name]</div>
+      <p class="proj-desc">[One or two sentences describing what the project does and why it's interesting or useful.]</p>
+      <div class="proj-chips">
+        <span class="chip">[Tech]</span><span class="chip">[Tech]</span><span class="chip">[Tech]</span>
+      </div>
+      <span class="proj-link">View on GitHub &#8599;</span>
+    </a>
+    <a class="proj-card reveal reveal-d1" href="https://github.com/yourusername/project-two" target="_blank">
+      <div class="proj-tag">[Tag] &middot; [Tag] &middot; [Tag]</div>
+      <div class="proj-name">[project-name]</div>
+      <p class="proj-desc">[One or two sentences describing what the project does and why it's interesting or useful.]</p>
+      <div class="proj-chips">
+        <span class="chip">[Tech]</span><span class="chip">[Tech]</span><span class="chip">[Tech]</span>
+      </div>
+      <span class="proj-link">View on GitHub &#8599;</span>
+    </a>
+    <a class="proj-card reveal reveal-d2" href="https://github.com/yourusername/project-three" target="_blank">
+      <div class="proj-tag">[Tag] &middot; [Tag] &middot; [Tag]</div>
+      <div class="proj-name">[project-name]</div>
+      <p class="proj-desc">[One or two sentences describing what the project does and why it's interesting or useful.]</p>
+      <div class="proj-chips">
+        <span class="chip">[Tech]</span><span class="chip">[Tech]</span><span class="chip">[Tech]</span>
+      </div>
+      <span class="proj-link">View on GitHub &#8599;</span>
+    </a>
+  </div>
+</section>
+
+<!-- 5. RESEARCH HIGHLIGHTS -->
+<section id="highlights">
+  <div class="sec-label">Research Highlights</div>
+  <div class="highlights-grid">
+
+    <!-- CARD 1: Full width — your biggest/most visual result -->
+    <!-- TO CUSTOMIZE: Replace the placeholder div inside .hl-media with:
+         Image:  <img src="your-image.png" alt="description" />
+         Video:  <video src="your-video.mp4" autoplay muted loop playsinline></video>
+         YouTube: <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1" allowfullscreen></iframe>
+    -->
+    <div class="highlight-card full reveal">
+      <div class="hl-media">
+        <div class="hl-placeholder">
+          <div class="pl-icon">&#9654;</div>
+          <div class="pl-text">Add your main result here<br/>(image or video)</div>
+        </div>
+      </div>
+      <div class="hl-body">
+        <div class="hl-tag">[Topic] &middot; [Institution/Company] &middot; [Years]</div>
+        <div class="hl-title">[Title of your biggest or most visual result]</div>
+        <div class="hl-desc">
+          [What was the problem or question? 2-3 sentences of context a
+          non-specialist could follow.]
+        </div>
+        <div class="hl-finding">
+          [What did you find or build, and what was the outcome? This is
+          your headline result.]
+        </div>
+        <div class="hl-chips">
+          <span class="chip">[Tech]</span><span class="chip">[Tech]</span><span class="chip">[Tech]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2: Half width -->
+    <div class="highlight-card reveal">
+      <div class="hl-media">
+        <div class="hl-placeholder">
+          <div class="pl-icon">&#9636;</div>
+          <div class="pl-text">Add a supporting image<br/>or chart here</div>
+        </div>
+      </div>
+      <div class="hl-body">
+        <div class="hl-tag">[Topic] &middot; [Institution/Company] &middot; [Years]</div>
+        <div class="hl-title">[Title of second result]</div>
+        <div class="hl-desc">
+          [Context: what were you trying to do?]
+        </div>
+        <div class="hl-finding">
+          [What was the outcome?]
+        </div>
+        <div class="hl-chips">
+          <span class="chip">[Tech]</span><span class="chip">[Tech]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3: Half width -->
+    <div class="highlight-card reveal reveal-d1">
+      <div class="hl-media">
+        <div class="hl-placeholder">
+          <div class="pl-icon">&#9636;</div>
+          <div class="pl-text">Add a supporting image<br/>or chart here</div>
+        </div>
+      </div>
+      <div class="hl-body">
+        <div class="hl-tag">[Topic] &middot; [Institution/Company] &middot; [Years]</div>
+        <div class="hl-title">[Title of third result]</div>
+        <div class="hl-desc">
+          [Context: what were you trying to do?]
+        </div>
+        <div class="hl-finding">
+          [What was the outcome?]
+        </div>
+        <div class="hl-chips">
+          <span class="chip">[Tech]</span><span class="chip">[Tech]</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 6. SELECTED PUBLICATIONS -->
+<section id="publications">
+  <div class="sec-label">Selected Publications</div>
+  <!-- TO CUSTOMIZE: one .pub-row per paper. Copy/paste to add more, delete to remove. -->
+  <div class="pubs-list">
+    <div class="pub-row reveal">
+      <div class="pub-yr">[Year]</div>
+      <div>
+        <div class="pub-title">[Paper title]</div>
+        <div class="pub-venue">[Venue / journal]</div>
+      </div>
+    </div>
+    <div class="pub-row reveal">
+      <div class="pub-yr">[Year]</div>
+      <div>
+        <div class="pub-title">[Paper title]</div>
+        <div class="pub-venue">[Venue / journal]</div>
+      </div>
+    </div>
+    <div class="pub-row reveal">
+      <div class="pub-yr">[Year]</div>
+      <div>
+        <div class="pub-title">[Paper title]</div>
+        <div class="pub-venue">[Venue / journal]</div>
+      </div>
+    </div>
+  </div>
+  <a class="pub-see-all" href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">
+    &#8594; All publications on Google Scholar
+  </a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label" style="justify-content:center; margin-bottom:2rem;">Contact</div>
+  <h2 class="contact-head reveal">Let's build something<br/><em>unreasonably fast.</em></h2>
+  <p class="contact-sub reveal">
+    [One sentence on what you're open to — collaborations, roles, questions
+    about your work, etc.]
+  </p>
+  <div class="contact-row reveal">
+    <a class="btn btn-filled" id="emailBtn2" href="#">Email me</a>
+    <a class="btn btn-outline" href="https://github.com/yourusername" target="_blank">GitHub</a>
+    <a class="btn btn-outline" href="https://www.linkedin.com/in/yourusername/" target="_blank">LinkedIn</a>
+    <a class="btn btn-outline" href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Scholar</a>
+  </div>
+</section>
+
+<footer>
+  <p>&#169; 2026 [Your Name]</p>
+  <p>[Institution/Company] &middot; [one or two more credentials, or delete this line]</p>
+</footer>
+
+<script>
+  // TO CUSTOMIZE: your email, split into user + domain so it's not plain-text
+  // to scrapers. e.g. u='jane.doe', d='example.com' -> jane.doe@example.com
+  var u = 'you', d = 'example.com', addr = u + '@' + d;
+  document.querySelectorAll('#emailBtn, #emailBtn2').forEach(function(el) {
+    el.href = 'mailto:' + addr;
+    if (el.id === 'emailBtn') el.textContent = addr;
+  });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in'); });
+  }
+
+  var html = document.documentElement;
+  var btn  = document.getElementById('themeToggle');
+  var icon = document.getElementById('themeIcon');
+  var lbl  = document.getElementById('themeLabel');
+  var KEY  = 'sk-theme';
+
+  function applyTheme(t) {
+    html.setAttribute('data-theme', t);
+    icon.innerHTML = t === 'dark' ? '&#9790;' : '&#9788;';
+    lbl.textContent = t === 'dark' ? 'Dark' : 'Light';
+    try { localStorage.setItem(KEY, t); } catch(e) {}
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch(e) {}
+  var sys = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  applyTheme(saved || sys);
+
+  btn.addEventListener('click', function() {
+    applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+</script>
+
+</body>
+</html>
