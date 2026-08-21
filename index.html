@@ -148,13 +148,15 @@
     }
     .hero-name-row h1.hero-name { margin-bottom: 0; }
     .hero-photo {
-      width: clamp(140px, 16vw, 220px);
-      height: clamp(140px, 16vw, 220px);
+      width: clamp(115px, 13vw, 180px);
+      height: clamp(115px, 13vw, 180px);
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid var(--border-hi);
       flex-shrink: 0;
       margin-bottom: 0.5rem;
+      position: relative;
+      top: 14px;
       opacity: 0; animation: fadeUp 0.7s 0.2s forwards;
       filter: grayscale(20%);
       transition: filter 0.3s;
@@ -553,39 +555,29 @@
   <div class="about-layout">
     <div class="about-copy reveal">
       <p>
-        I'm a research scientist working at the intersection of numerical methods and
-        machine learning for physical systems. I'm currently a postdoctoral researcher
-        in the <strong>SOLARIS Lab at Johns Hopkins University</strong>, where I build
-        neural-operator surrogates and differentiable PDE solvers for fluid dynamics.
+        I work on machine learning and computational methods for physical systems
+        governed by partial differential equations, at the intersection of AI for
+        Science and computational physics. Rather than treating simulators as black
+        boxes, I build methods that exploit differentiability, physical structure, and
+        high-performance computing to make them faster, more accurate, and controllable.
       </p>
       <p>
-        At Johns Hopkins I train neural-operator surrogates &mdash; FNOs and DeepONets &mdash;
-        across ten PDE systems, and train closed-loop neural control policies by
-        backpropagating through differentiable Navier&ndash;Stokes solvers for 3D turbulent
-        channel flow. Backpropagating through 500-step autoregressive rollouts without
-        gradient blow-up, these policies <strong>outperform RL-PPO by 1&ndash;3 orders of
-        accuracy</strong> on noisy, out-of-distribution initializations where classical MPC
-        was intractable.
+        I'm currently a postdoctoral researcher in the <strong>SOLARIS Lab at Johns
+        Hopkins University</strong>, where I train neural-operator surrogates for PDE
+        systems and use them to build closed-loop control policies for turbulent fluid
+        flow, policies that hold up even far outside their training distribution, where
+        classical control methods fail.
       </p>
       <p>
-        Before this, I split my PhD between <strong>Imperial College London</strong> and the
-        <strong>McLaren F1 Team</strong>, where I designed a preconditioner for dense,
-        ill-conditioned high-order FEM operators that <strong>accelerated 3D simulation by
-        40%</strong> and scaled algebraic multigrid to 100M-element matrices across 10,000+
-        MPI ranks on national HPC. At McLaren I industrialized the research solver
-        Nektar++ into the team's production pipeline for unsteady 3D simulation &mdash;
-        the first such deployment in Formula 1.
+        Before this, my PhD split time between Imperial College London and the McLaren
+        F1 Team, where I built faster solvers for high-order finite element simulations
+        and helped bring one into McLaren's production aerodynamics pipeline, a first
+        for Formula 1. I'm also a core contributor to <em>Nektar++</em>, an open-source
+        spectral/hp element framework, and <em>NeuroMANCER</em>, PNNL's library for
+        differentiable programming and scientific machine learning.
       </p>
       <p>
-        I care about open-source scientific software: I'm a core contributor to
-        <em>Nektar++</em>, the open-source spectral/hp element framework, and to
-        <em>NeuroMANCER</em>, PNNL's differentiable-programming and scientific-ML library,
-        where I introduced neural-operator support via five merged pull requests.
-      </p>
-      <p>
-        My work spans journal articles, peer-reviewed proceedings, and conference talks
-        in CFD, HPC, and machine learning &mdash; from turbulence-model augmentation to
-        preconditioning for spectral/hp element methods. Full list on
+        Full publication list on
         <a href="https://scholar.google.com/citations?user=ERq6oD0AAAAJ" target="_blank">Google Scholar</a>.
       </p>
     </div>
