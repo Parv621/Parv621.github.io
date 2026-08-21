@@ -148,13 +148,15 @@
     }
     .hero-name-row h1.hero-name { margin-bottom: 0; }
     .hero-photo {
-      width: clamp(140px, 16vw, 220px);
-      height: clamp(140px, 16vw, 220px);
+      width: clamp(115px, 13vw, 180px);
+      height: clamp(115px, 13vw, 180px);
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid var(--border-hi);
       flex-shrink: 0;
       margin-bottom: 0.5rem;
+      position: relative;
+      top: 14px;
       opacity: 0; animation: fadeUp 0.7s 0.2s forwards;
       filter: grayscale(20%);
       transition: filter 0.3s;
@@ -514,6 +516,7 @@
       <li><a href="#projects">Open Source</a></li>
       <li><a href="#highlights">Research</a></li>
       <li><a href="#publications">Papers</a></li>
+      <li><a href="#talks">Talks</a></li>
     </ul>
   </div>
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -552,39 +555,29 @@
   <div class="about-layout">
     <div class="about-copy reveal">
       <p>
-        I'm a research scientist working at the intersection of numerical methods and
-        machine learning for physical systems. I'm currently a postdoctoral researcher
-        in the <strong>SOLARIS Lab at Johns Hopkins University</strong>, where I build
-        neural-operator surrogates and differentiable PDE solvers for fluid dynamics.
+        I work on machine learning and computational methods for physical systems
+        governed by partial differential equations, at the intersection of AI for
+        Science and computational physics. Rather than treating simulators as black
+        boxes, I build methods that exploit differentiability, physical structure, and
+        high-performance computing to make them faster, more accurate, and controllable.
       </p>
       <p>
-        At Johns Hopkins I train neural-operator surrogates &mdash; FNOs and DeepONets &mdash;
-        across ten PDE systems, and train closed-loop neural control policies by
-        backpropagating through differentiable Navier&ndash;Stokes solvers for 3D turbulent
-        channel flow. Backpropagating through 500-step autoregressive rollouts without
-        gradient blow-up, these policies <strong>outperform RL-PPO by 1&ndash;3 orders of
-        accuracy</strong> on noisy, out-of-distribution initializations where classical MPC
-        was intractable.
+        I'm currently a postdoctoral researcher in the <strong>SOLARIS Lab at Johns
+        Hopkins University</strong>, where I train neural-operator surrogates for PDE
+        systems and use them to build closed-loop control policies for turbulent fluid
+        flow, policies that hold up even far outside their training distribution, where
+        classical control methods fail.
       </p>
       <p>
-        Before this, I split my PhD between <strong>Imperial College London</strong> and the
-        <strong>McLaren F1 Team</strong>, where I designed a preconditioner for dense,
-        ill-conditioned high-order FEM operators that <strong>accelerated 3D simulation by
-        40%</strong> and scaled algebraic multigrid to 100M-element matrices across 10,000+
-        MPI ranks on national HPC. At McLaren I industrialized the research solver
-        Nektar++ into the team's production pipeline for unsteady 3D simulation &mdash;
-        the first such deployment in Formula 1.
+        Before this, my PhD split time between Imperial College London and the McLaren
+        F1 Team, where I built faster solvers for high-order finite element simulations
+        and helped bring one into McLaren's production aerodynamics pipeline, a first
+        for Formula 1. I'm also a core contributor to <em>Nektar++</em>, an open-source
+        spectral/hp element framework, and <em>NeuroMANCER</em>, PNNL's library for
+        differentiable programming and scientific machine learning.
       </p>
       <p>
-        I care about open-source scientific software: I'm a core contributor to
-        <em>Nektar++</em>, the open-source spectral/hp element framework, and to
-        <em>NeuroMANCER</em>, PNNL's differentiable-programming and scientific-ML library,
-        where I introduced neural-operator support via five merged pull requests.
-      </p>
-      <p>
-        My work spans journal articles, peer-reviewed proceedings, and conference talks
-        in CFD, HPC, and machine learning &mdash; from turbulence-model augmentation to
-        preconditioning for spectral/hp element methods. Full list on
+        Full publication list on
         <a href="https://scholar.google.com/citations?user=ERq6oD0AAAAJ" target="_blank">Google Scholar</a>.
       </p>
     </div>
@@ -683,19 +676,48 @@
     </div>
 
     <div class="tl-item reveal">
-      <div class="tl-when">Aug 2020<br/>&ndash; Nov 2021</div>
+      <div class="tl-when">Jan 2021<br/>&ndash; Nov 2021</div>
       <div>
-        <div class="tl-where">ISAE-SUPAERO & DLR &middot; Toulouse, FR & G&ouml;ttingen, DE</div>
-        <div class="tl-role">Graduate Researcher</div>
+        <div class="tl-where">C&sup2;A&sup2;S&sup2;E, DLR &middot; G&ouml;ttingen, DE</div>
+        <div class="tl-role">Master's Thesis Student</div>
         <div class="tl-body">
-          At ISAE-SUPAERO, trained CNN models for autoregressive forecasting of wave
-          propagation with absorbing boundaries. For my thesis at DLR, corrected
-          turbulence closure from wind-tunnel data via field inversion, an adjoint-based
-          inverse problem.
+          Augmented RANS turbulence closure via field inversion and machine learning
+          (FIML) for shock-induced separation.
         </div>
         <div class="tl-chips">
-          <span class="chip">CNNs</span><span class="chip">Field Inversion</span>
-          <span class="chip">Adjoint Methods</span>
+          <span class="chip">Field Inversion</span><span class="chip">Adjoint Methods</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-when">Sep 2020<br/>&ndash; Jul 2021</div>
+      <div>
+        <div class="tl-where">Formula Student Team Delft &middot; Delft, NL</div>
+        <div class="tl-role">CFD Engineer</div>
+        <div class="tl-body">
+          Developed a validated, user-friendly CFD methodology on Star-CCM+, enabling
+          easy adoption to new geometries supplied by the aero team. Developed and
+          automated a standardized CFD post-processing routine, and worked on yaw and
+          donut simulations for a full car model.
+        </div>
+        <div class="tl-chips">
+          <span class="chip">Star-CCM+</span><span class="chip">CFD</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-when">Aug 2020<br/>&ndash; Jan 2021</div>
+      <div>
+        <div class="tl-where">DAEP, ISAE-SUPAERO &middot; Toulouse, FR</div>
+        <div class="tl-role">Researcher</div>
+        <div class="tl-body">
+          Trained CNN surrogates for spatio-temporal forecasting of 2D acoustic
+          wavefields with non-reflecting boundaries.
+        </div>
+        <div class="tl-chips">
+          <span class="chip">CNNs</span><span class="chip">Surrogate Modeling</span>
         </div>
       </div>
     </div>
@@ -912,13 +934,6 @@
       </div>
     </div>
     <div class="pub-row reveal">
-      <div class="pub-yr">2025</div>
-      <div>
-        <div class="pub-title">Industrialization of spectral/hp element method for incompressible, transitional flow around Formula 1 geometries</div>
-        <div class="pub-venue"><a href="https://doi.org/10.2514/6.2025-0880" target="_blank">AIAA SciTech 2025 Forum</a></div>
-      </div>
-    </div>
-    <div class="pub-row reveal">
       <div class="pub-yr">2026</div>
       <div>
         <div class="pub-title">Flow behind the Imperial Front Wing: comparison of results from volumetric PTV experiment and Nektar++ simulations</div>
@@ -936,6 +951,69 @@
   <a class="pub-see-all" href="https://scholar.google.com/citations?user=ERq6oD0AAAAJ" target="_blank">
     &#8594; All publications on Google Scholar
   </a>
+</section>
+
+<!-- 7. TALKS / CONFERENCES -->
+<section id="talks">
+  <div class="sec-label">Talks & Conferences</div>
+  <div class="pubs-list">
+    <div class="pub-row reveal">
+      <div class="pub-yr">Nov 2025</div>
+      <div>
+        <div class="pub-title">FLUCOME 2025, Delft, NL</div>
+        <div class="pub-venue">On the flow behind the F1 Imperial Front Wing: comparison between volumetric PTV and numerical simulations</div>
+      </div>
+    </div>
+    <div class="pub-row reveal">
+      <div class="pub-yr">Nov 2025</div>
+      <div>
+        <div class="pub-title">FLUCOME 2025, Delft, NL</div>
+        <div class="pub-venue">Volumetric PTV on the flow behind a rolling F1 wheel</div>
+      </div>
+    </div>
+    <div class="pub-row reveal">
+      <div class="pub-yr">Jun 2025</div>
+      <div>
+        <div class="pub-title">9th Nektar++ Workshop, Imperial College London, UK</div>
+        <div class="pub-venue">Towards industrialisation of spectral/hp element method for incompressible, transitional flow around Formula 1 geometries</div>
+      </div>
+    </div>
+    <div class="pub-row reveal">
+      <div class="pub-yr">Mar 2025</div>
+      <div>
+        <div class="pub-title">SIAM CSE25, Fort Worth, TX, US</div>
+        <div class="pub-venue">Performance and scalability of lower-order refined preconditioning for spectral/hp element methods for complex, 3D geometries</div>
+      </div>
+    </div>
+    <div class="pub-row reveal">
+      <div class="pub-yr">Jan 2025</div>
+      <div>
+        <div class="pub-title">AIAA SciTech 2025 Forum</div>
+        <div class="pub-venue"><a href="https://doi.org/10.2514/6.2025-0880" target="_blank">Industrialization of spectral/hp element method for incompressible, transitional flow around Formula 1 geometries</a></div>
+      </div>
+    </div>
+    <div class="pub-row reveal">
+      <div class="pub-yr">Jan 2025</div>
+      <div>
+        <div class="pub-title">AIAA SciTech 2025 Forum</div>
+        <div class="pub-venue"><a href="https://doi.org/10.2514/6.2025-1486" target="_blank">Comparing efficient implicit time-stepping techniques for highly resolved simulations using industrial geometries</a></div>
+      </div>
+    </div>
+    <div class="pub-row reveal">
+      <div class="pub-yr">Jul 2024</div>
+      <div>
+        <div class="pub-title">World Congress in Computational Mechanics & ECCOMAS Congress 2024</div>
+        <div class="pub-venue"><a href="https://doi.org/10.23967/eccomas.2024.280" target="_blank">Lower-order refined preconditioning for the spectral/hp element method for complex, 3D geometries</a></div>
+      </div>
+    </div>
+    <div class="pub-row reveal">
+      <div class="pub-yr">Jun 2024</div>
+      <div>
+        <div class="pub-title">8th Nektar++ Workshop, Newcastle University, UK</div>
+        <div class="pub-venue">Lower-order refined preconditioning for spectral/hp element methods for complex, 3D geometries</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
